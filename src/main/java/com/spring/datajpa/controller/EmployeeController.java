@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @EnableTransactionManagement
 public class EmployeeController {
@@ -38,5 +40,12 @@ public class EmployeeController {
     public EmployeeProjectBookingAck employeeProjectBookingAck(@RequestBody EmployeeProjectBooking employeeProjectBooking){
         return employeeProjectBookingService.bookEmployeeProject(employeeProjectBooking);
     }
+
+    @GetMapping("/getEmployees")
+    public List<Employee> getEmployees(){
+        return employeeService.getEmployeeList();
+    }
+
+
 
 }

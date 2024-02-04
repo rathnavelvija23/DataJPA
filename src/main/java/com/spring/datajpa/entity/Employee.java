@@ -1,5 +1,6 @@
 package com.spring.datajpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Employee {
     private String name;
     private Integer age;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name="emp_projects" ,
                 joinColumns = @JoinColumn (name = "emp_id") ,
